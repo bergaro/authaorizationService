@@ -21,11 +21,11 @@ public class AuthService {
         return userRepository.setNewUser(user);
     }
 
-    public List<Authorities> getAuthorities(String user, String password) {
-        if (isEmpty(user) || isEmpty(password)) {
+    public List<Authorities> getAuthorities(User user) {
+        if (isEmpty(user.getName()) || isEmpty(user.getPassword())) {
             throw new InvalidCredentials("User name or password is empty");
         }
-        List<Authorities> userAuthorities = userRepository.getUserAuthorities(user, password);
+        List<Authorities> userAuthorities = userRepository.getUserAuthorities(user.getName(), user.getPassword());
         if (isEmpty(userAuthorities)) {
             throw new UnauthorizedUser("Unknown user " + user);
         }

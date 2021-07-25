@@ -17,4 +17,9 @@ public class ExceptionControllerAdvice {
     public ResponseEntity<String> unauthorizedUserHandler(UnauthorizedUser ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.UNAUTHORIZED);
     }
+
+    @ExceptionHandler(NullPointerException.class)
+    public ResponseEntity<String> nullPointerExceptionHandler(NullPointerException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+    }
 }
