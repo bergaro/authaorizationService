@@ -1,0 +1,14 @@
+GET http://localhost:24001/authorize?user=vadim&password=123456
+Accept: application/json
+
+###
+POST http://localhost:24001/reg
+Content-Type: application/json
+
+{
+  "name" : "andrey",
+  "password" : "123456"
+}
+
+###
+
