@@ -6,13 +6,19 @@ import java.util.List;
 
 public class User {
 
-    @Size(min = 2, max = 10)
+    @Size(min = 3, max = 10)
     private String name;
 
     @Size(min = 4, max = 10)
     private String password;
     private List<Authorities> userAuthorities  = new ArrayList<>(6);
 
+    public User() {}
+
+    public User(String name, String password) {
+        this.name = name;
+        this.password = password;
+    }
 
     public String getName() {
         return name;
