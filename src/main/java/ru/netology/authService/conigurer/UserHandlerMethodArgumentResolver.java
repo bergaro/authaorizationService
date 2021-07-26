@@ -28,11 +28,11 @@ public class UserHandlerMethodArgumentResolver implements HandlerMethodArgumentR
         String userName = webRequest.getParameter("user");
         String userPassword = webRequest.getParameter("password");
         String binderError;
+        WebDataBinder binder;
         User user = new User().setName(userName).setPassword(userPassword);
         if(parameter.hasParameterAnnotation(Valid.class)) {
-            WebDataBinder binder = binderFactory.createBinder(webRequest, user, DataBinder.DEFAULT_OBJECT_NAME);
+            binder = binderFactory.createBinder(webRequest, user, DataBinder.DEFAULT_OBJECT_NAME);
             binder.validate();
-            System.out.println(binder.getBindingResult());
             binderError = binder.getBindingResult().toString();
             if(findBinderError(binderError)) {
                 String messageError = "Incorrect field length!";
