@@ -1,11 +1,11 @@
 # SpringBoot
 
-### - Задача 1 - Сервис авторизации.
 
+### - Задача 1,2 - Продвинутый сервис авторизации.
 
 * #### Запрос на добавление нового пользователя в БД:
 
-```json
+```
     POST http://localhost:24001/reg  
     Content-Type: application/json  
     {
@@ -16,7 +16,7 @@
 
 * #### Ответ на запрос добавления нового пользователя в БД:
 
-```json
+```
     POST http://localhost:24001/reg
     
     HTTP/1.1 200 
@@ -38,13 +38,13 @@
 
 * #### Запрос на получение возможностей пользователя:
 
-```json
+```
     GET http://localhost:24001/authorize?user=andrey&password=123456
 ```
 
 * #### Ответ на запрос на получение возможностей пользователя:
 
-```json
+```
     GET http://localhost:24001/authorize?user=andrey&password=123456
     HTTP/1.1 200
     Content-Type: application/json
@@ -62,13 +62,13 @@
 
 * #### Запрос на получение исключения InvalidCredentials:
   
-```json
+```
     GET http://localhost:24001/authorize?user=andrey&password=
 ```
 
 * #### Ответ на запрос на получение исключения InvalidCredentials:
 
-```json
+```
     GET http://localhost:24001/authorize?user=andrey&password=
     HTTP/1.1 400
     Content-Type: application/json
@@ -81,13 +81,13 @@
 
 * #### Запрос на получение исключения UnauthorizedUser:
 
-```json
+```
     GET http://localhost:24001/authorize?user=vadim&password=123456
 ```
 
 * #### Ответ на запрос на получение исключения UnauthorizedUser:
 
-```json
+```
     GET http://localhost:24001/authorize?user=vadim&password=123456
     HTTP/1.1 401
     Content-Type: application/json
